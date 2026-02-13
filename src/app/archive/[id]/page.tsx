@@ -1,8 +1,15 @@
-import { getShowById } from '@/lib/data';
+import { getShowById, getAllShows } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Play, Share2, Clock, Calendar } from 'lucide-react';
 import { ShowPlayButton } from '@/components/archive/ShowPlayButton'; // Client component
+
+export async function generateStaticParams() {
+    const shows = getAllShows();
+    return shows.map((show) => ({
+        id: show.id,
+    }));
+}
 
 export default async function ShowPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;

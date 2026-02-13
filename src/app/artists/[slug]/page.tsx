@@ -1,8 +1,14 @@
-import { getArtistBySlug, getShowsByArtist } from '@/lib/data';
+import { getArtistBySlug, getShowsByArtist, ARTISTS } from '@/lib/data';
 import { ShowCard } from '@/components/ui/ShowCard';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Instagram, Globe, Music } from 'lucide-react';
+
+export async function generateStaticParams() {
+    return ARTISTS.map((artist) => ({
+        slug: artist.slug,
+    }));
+}
 
 export default async function ArtistProfile({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
