@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
 const nextConfig = {
-  output: isProd ? 'export' : undefined,
-  basePath: isProd ? '/parca-radio' : '',
+  output: isGithubActions ? 'export' : undefined,
+  basePath: isGithubActions ? '/parca-radio' : '',
   images: {
     unoptimized: true,
     remotePatterns: [
