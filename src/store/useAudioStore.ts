@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { PlayerState, Show } from '@/types';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface AudioStore extends PlayerState {
     // Additional internal state if needed
 }

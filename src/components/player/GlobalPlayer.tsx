@@ -2,8 +2,8 @@
 
 import { useAudioStore } from '@/store/useAudioStore';
 import { useAudioPlayer } from '@/hooks/useAudioPlayer';
-import { Play, Pause, Volume2, VolumeX, Activity } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
@@ -20,11 +20,13 @@ export default function GlobalPlayer() {
         isLoading
     } = useAudioStore();
 
-    const [isExpanded, setIsExpanded] = useState(false);
+
 
     // Don't render until we have a show or default state (client-side only to avoid hydration mismatch)
     const [mounted, setMounted] = useState(false);
-    useEffect(() => setMounted(true), []);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     if (!mounted) return null;
 
