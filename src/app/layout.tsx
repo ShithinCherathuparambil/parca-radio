@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://shithincherathuparambil.github.io/parca-radio/'),
   title: "Parca Radio",
   description: "Midnight Tech Radio - Live & Archived",
 };
