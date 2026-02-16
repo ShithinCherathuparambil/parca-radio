@@ -31,6 +31,8 @@ jobs:
         with:
           node-version: "20"
           cache: 'npm'
+      - name: Remove lockfile
+        run: rm package-lock.json
       - name: Install dependencies
         run: npm install
       - name: Build with Next.js
